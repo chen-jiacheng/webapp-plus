@@ -1,7 +1,7 @@
-package com.chenjiacheng.webapp.controller;
+package com.chenjiacheng.webapp.auth.controller;
 
-import com.chenjiacheng.webapp.common.annotation.RequireRoles;
-import com.chenjiacheng.webapp.common.enums.WebappAuthEnum;
+import com.chenjiacheng.webapp.auth.common.annotation.RequireRoles;
+import com.chenjiacheng.webapp.auth.common.enums.WebappAuthEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping("/api/user")
-public class UserController {
+@RequestMapping("/api/admin")
+public class AdminController {
 
-    @RequireRoles({WebappAuthEnum.ADMIN_PERMS,WebappAuthEnum.USER_PERMS})
+    @RequireRoles(WebappAuthEnum.ADMIN_PERMS)
     @GetMapping("/get")
-    public ResponseEntity<String> get(@RequestParam("username") String username){
-        return ResponseEntity.ok("UserController.get " + username);
+    public ResponseEntity<String> get(@RequestParam("username") String username) {
+        return ResponseEntity.ok("AdminController.get " + username);
     }
 
 }

@@ -1,6 +1,6 @@
-package com.chenjiacheng.webapp.common.annotation;
+package com.chenjiacheng.webapp.auth.common.annotation;
 
-import com.chenjiacheng.webapp.common.enums.WebappAuthEnum;
+import com.chenjiacheng.webapp.auth.common.enums.WebappAuthEnum;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

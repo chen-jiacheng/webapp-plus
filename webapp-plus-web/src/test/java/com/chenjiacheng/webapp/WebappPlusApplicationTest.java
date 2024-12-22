@@ -1,10 +1,10 @@
 package com.chenjiacheng.webapp;
 
-import com.chenjiacheng.webapp.common.config.WebappAuthConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.util.Assert;
 
 /**
@@ -18,11 +18,11 @@ import org.springframework.util.Assert;
 class WebappPlusApplicationTest {
 
     @Autowired
-    private WebappAuthConfig webappAuthConfig;
+    private ApplicationContext ctx;
 
     @Test
     public void contextLoader() {
-        log.info("webappAuthConfig:{}",webappAuthConfig);
-        Assert.notNull(webappAuthConfig,"webappAuthConfig can't be null.");
+        log.info("ctx:{}", ctx);
+        Assert.notNull(ctx, "ApplicationContext can't be null.");
     }
 }

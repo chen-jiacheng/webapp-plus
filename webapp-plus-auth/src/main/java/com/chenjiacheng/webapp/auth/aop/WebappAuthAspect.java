@@ -1,8 +1,8 @@
-package com.chenjiacheng.webapp.aop;
+package com.chenjiacheng.webapp.auth.aop;
 
-import com.chenjiacheng.webapp.common.annotation.RequireRoles;
-import com.chenjiacheng.webapp.common.config.WebappAuthConfig;
-import com.chenjiacheng.webapp.common.enums.WebappAuthEnum;
+import com.chenjiacheng.webapp.auth.common.annotation.RequireRoles;
+import com.chenjiacheng.webapp.auth.common.config.WebappAuthConfig;
+import com.chenjiacheng.webapp.auth.common.enums.WebappAuthEnum;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -25,11 +25,19 @@ import java.util.*;
 public class WebappAuthAspect {
 
 
+    public static final Map<String, List<String>> userRoles = new HashMap<>();
+
+    static {
+        userRoles.put("zhangsan", Arrays.asList("H000001", "H000002"));
+        userRoles.put("lisi", Arrays.asList("H000001"));
+    }
+
     @Autowired
     private WebappAuthConfig webappAuthConfig;
 
-    @Pointcut("@annotation(com.chenjiacheng.webapp.common.annotation.RequireRoles)")
-    public void requireRoles() {}
+    @Pointcut("@annotation(com.chenjiacheng.webapp.auth.common.annotation.RequireRoles)")
+    public void requireRoles() {
+    }
 
     // 前置通知，用于检查用户角色
     @Before("requireRoles()")
@@ -71,12 +79,6 @@ public class WebappAuthAspect {
         return requireRolesSet;
     }
 
-
-    public static final Map<String,List<String>> userRoles = new HashMap<>();
-    static {
-        userRoles.put("zhangsan",Arrays.asList("H000001","H000002"));
-        userRoles.put("lisi",Arrays.asList("H000001"));
-    }
     private List<String> getRoles(String username) {
         return userRoles.get(username);
     }

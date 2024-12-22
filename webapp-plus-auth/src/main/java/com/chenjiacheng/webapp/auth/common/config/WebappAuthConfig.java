@@ -1,4 +1,4 @@
-package com.chenjiacheng.webapp.common.config;
+package com.chenjiacheng.webapp.auth.common.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +16,7 @@ import java.util.Map;
 @Configuration
 public class WebappAuthConfig {
 
-    @Value("#{${rids}}")
+    @Value("#{${rids:{'USER':'H000001','ADMIN':'H000002'}}}")
     private Map<String, String> rids;
 
 }
