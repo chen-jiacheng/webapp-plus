@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/webapp-plus-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/webapp-plus-manage/pom.xml" />
       </set>
     </option>
   </component>

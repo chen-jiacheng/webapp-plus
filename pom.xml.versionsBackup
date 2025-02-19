@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.chenjiacheng.webapp</groupId>
     <artifactId>webapp-plus</artifactId>
-    <version>1.0.0</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>webapp-plus-start</module>
-        <module>webapp-plus-common</module>
-        <module>webapp-plus-api</module>
-        <module>webapp-plus-service</module>
-        <module>webapp-plus-task</module>
-        <module>webapp-plus-biz</module>
-        <module>webapp-plus-rpc</module>
-        <module>webapp-plus-core</module>
-        <module>webapp-plus-dao</module>
+        <module>webapp-plus-web</module>
+        <module>webapp-plus-auth</module>
     </modules>
 
     <properties>
@@ -43,16 +36,16 @@
                 <scope>import</scope>
             </dependency>
 
-            <!--            <dependency>-->
-            <!--                <groupId>org.apache.logging.log4j</groupId>-->
-            <!--                <artifactId>log4j-api</artifactId>-->
-            <!--                <version>${log4j2.version}</version> &lt;!&ndash; 更新为所需版本 &ndash;&gt;-->
-            <!--            </dependency>-->
-            <!--            <dependency>-->
-            <!--                <groupId>org.apache.logging.log4j</groupId>-->
-            <!--                <artifactId>log4j-core</artifactId>-->
-            <!--                <version>${log4j2.version}</version> &lt;!&ndash; 更新为所需版本 &ndash;&gt;-->
-            <!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.apache.logging.log4j</groupId>-->
+<!--                <artifactId>log4j-api</artifactId>-->
+<!--                <version>${log4j2.version}</version> &lt;!&ndash; 更新为所需版本 &ndash;&gt;-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.apache.logging.log4j</groupId>-->
+<!--                <artifactId>log4j-core</artifactId>-->
+<!--                <version>${log4j2.version}</version> &lt;!&ndash; 更新为所需版本 &ndash;&gt;-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
@@ -111,6 +104,14 @@
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
                     <version>${spring.boot.version}</version>
+<!--                    <configuration>-->
+<!--                        <excludes>-->
+<!--                            <exclude>-->
+<!--                                <groupId>org.projectlombok</groupId>-->
+<!--                                <artifactId>lombok</artifactId>-->
+<!--                            </exclude>-->
+<!--                        </excludes>-->
+<!--                    </configuration>-->
                 </plugin>
             </plugins>
         </pluginManagement>
