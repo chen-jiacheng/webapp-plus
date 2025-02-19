@@ -16,7 +16,7 @@
             <PatternLayout pattern="${PATTERN}"/>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-                <SizeBasedTriggeringPolicy size="1024 MB"/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
             </Policies>
         </RollingFile>
     </Appenders>
@@ -26,5 +26,10 @@
             <appender-ref ref="Console"/>
             <appender-ref ref="RollingFile"/>
         </Root>
+        <!-- Hibernate Validator Logger -->
+        <Logger name="org.hibernate.validator" level="debug" additivity="false">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="RollingFile"/>
+        </Logger>
     </Loggers>
 </Configuration>

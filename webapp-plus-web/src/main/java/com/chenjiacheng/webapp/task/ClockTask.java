@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class ClockTask {
 
-    @Scheduled(cron = "* * * * * ?")
+    @Scheduled(cron = "* * 0 * * ?")
     public void run() {
         while (true) {
             log.info("Current time:{}", LocalDateTime.now());
