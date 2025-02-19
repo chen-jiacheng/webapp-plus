@@ -13,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @Slf4j
 @EnableScheduling
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.chenjiacheng.webapp")
 public class WebappPlusApplication {
 
     public static void main(String[] args) {

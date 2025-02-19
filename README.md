@@ -20,3 +20,8 @@ webapp-plus-plus 是一个基于spring boot的快速开发框架，提供了一�
 3. 输入用户名：admin 密码：123456 登录
 4. 查看接口文档
 5. 项目启动成功
+
+
+## 定时任务
+https://shardingsphere.apache.org/elasticjob/current/cn/overview/
+
