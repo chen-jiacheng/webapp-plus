@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="TRACE" monitorInterval="30">
+<Configuration status="INFO" monitorInterval="30">
 
     <Properties>
         <Property name="PROJECT_NAME">${spring:spring.application.name}</Property>
@@ -22,12 +22,12 @@
     </Appenders>
 
     <Loggers>
-        <Root level="debug">
+        <Root level="info">
             <appender-ref ref="Console"/>
             <appender-ref ref="RollingFile"/>
         </Root>
         <!-- Hibernate Validator Logger -->
-        <Logger name="org.hibernate.validator" level="debug" additivity="false">
+        <Logger name="org.hibernate.validator" level="info" additivity="false">
             <appender-ref ref="Console"/>
             <appender-ref ref="RollingFile"/>
         </Logger>

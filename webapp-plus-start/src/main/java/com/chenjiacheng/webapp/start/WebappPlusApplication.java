@@ -3,6 +3,7 @@ package com.chenjiacheng.webapp.start;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -13,6 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @Slf4j
 @EnableScheduling
+@ImportResource(locations = {"classpath:elasticjob.xml"})
 @SpringBootApplication(scanBasePackages = "com.chenjiacheng.webapp")
 public class WebappPlusApplication {
 

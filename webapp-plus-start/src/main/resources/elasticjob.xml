@@ -8,21 +8,39 @@
                         http://shardingsphere.apache.org/schema/elasticjob/elasticjob.xsd
                         ">
     <!--配置作业注册中心 -->
-    <elasticjob:zookeeper id="regCenter" server-lists="yourhost:2181" namespace="my-job" base-sleep-time-milliseconds="1000" max-sleep-time-milliseconds="3000" max-retries="3" />
+    <elasticjob:zookeeper id="regCenter"
+                          server-lists="127.0.0.1:2181"
+                          namespace="webapp-plus-job"
+                          base-sleep-time-milliseconds="1000"
+                          max-sleep-time-milliseconds="3000"
+                          max-retries="3" />
 
     <!-- 配置作业 Bean -->
-    <bean id="myJob" class="xxx.MyJob">
-        <property name="fooService" ref="xxx.FooService" />
-    </bean>
+<!--    <bean id="demoJob" class="com.chenjiacheng.webapp.task.DemoJob">-->
+<!--&lt;!&ndash;        <property name="fooService" ref="xxx.FooService" />&ndash;&gt;-->
+<!--    </bean>-->
 
+<!--    &lt;!&ndash; 配置基于 class 的作业调度 &ndash;&gt;-->
+<!--    <elasticjob:job id="demoJob"-->
+<!--                    job-ref="demoJob"-->
+<!--                    registry-center-ref="regCenter"-->
+<!--                    sharding-total-count="32"-->
+<!--                    sharding-item-parameters="0=北京市, 1=天津市, 2=上海市, 3=重庆市, 4=河北省, 5=山西省, 6=辽宁省, 7=吉林省, 8=黑龙江省, 9=江苏省, 10=浙江省, 11=安徽省, 12=福建省, 13=江西省, 14=山东省, 15=河南省, 16=湖北省, 17=湖南省, 18=广东省, 19=海南省, 20=四川省, 21=贵州省, 22=云南省, 23=陕西省, 24=甘肃省, 25=青海省, 26=台湾省, 27=内蒙古自治区, 28=广西壮族自治区, 29=西藏自治区, 30=宁夏回族自治区, 31=新疆维吾尔自治区, 32=香港特别行政区, 33=澳门特别行政区"-->
+<!--                    cron="0/1 * * * * ?" />-->
     <!-- 配置基于 class 的作业调度 -->
-    <elasticjob:job id="${myJob.id}" job-ref="myJob" registry-center-ref="regCenter" sharding-total-count="${myJob.shardingTotalCount}" cron="${myJob.cron}" />
+    <elasticjob:job id="demoJob2"
+                    job-ref="demoJob"
+
+                    registry-center-ref="regCenter"
+                    sharding-total-count="34"
+                    overwrite="true"
+                    sharding-item-parameters="0=北京市,1=天津市,2=上海市,3=重庆市,4=河北省,5=山西省,6=辽宁省,7=吉林省,8=黑龙江省,9=江苏省,10=浙江省,11=安徽省,12=福建省,13=江西省,14=山东省,15=河南省,16=湖北省,17=湖南省,18=广东省,19=海南省,20=四川省,21=贵州省,22=云南省,23=陕西省,24=甘肃省,25=青海省,26=台湾省,27=内蒙古自治区,28=广西壮族自治区,29=西藏自治区,30=宁夏回族自治区,31=新疆维吾尔自治区,32=香港特别行政区,33=澳门特别行政区"                    cron="0/30 * * * * ?" />
 
     <!-- 配置基于 type 的作业调度 -->
-    <elasticjob:job id="${myScriptJob.id}" job-type="SCRIPT" registry-center-ref="regCenter" sharding-total-count="${myScriptJob.shardingTotalCount}" cron="${myScriptJob.cron}">
-        <props>
-            <prop key="script.command.line">${myScriptJob.scriptCommandLine}</prop>
-        </props>
-    </elasticjob:job>
+<!--    <elasticjob:job id="${myScriptJob.id}" job-type="SCRIPT" registry-center-ref="regCenter" sharding-total-count="${myScriptJob.shardingTotalCount}" cron="${myScriptJob.cron}">-->
+<!--        <props>-->
+<!--            <prop key="script.command.line">${myScriptJob.scriptCommandLine}</prop>-->
+<!--        </props>-->
+<!--    </elasticjob:job>-->
 
 </beans>
